@@ -6,6 +6,7 @@ from Library import ConfigReader
 
 def start_browser():
     global driver
+    print(ConfigReader.Read_ConfigFile('Details','Browser'))
     if ConfigReader.Read_ConfigFile('Details','Browser') == 'Chrome':
         driver = Chrome()
     elif ConfigReader.Read_ConfigFile('Details','Browser') == 'Edge':
@@ -16,6 +17,7 @@ def start_browser():
         driver = Chrome()
 
     driver.get(ConfigReader.Read_ConfigFile('Details', 'ApplicationURL'))
+#    driver.get("http://www.thetestingworld.com/testings")
     driver.maximize_window()
     return driver
 
